@@ -5,7 +5,14 @@ export const UserSchema = z.object({
   id: z.number().int().positive(),
   name: z.string().min(1, 'Name is required').max(100, 'Name must be less than 100 characters'),
   createdAt: z.string().datetime(),
-  updatedAt: z.string().datetime()
+  updatedAt: z.string().datetime(),
+  microposts: z.array(z.object({
+    id: z.number().int().positive(),
+    title: z.string(),
+    userId: z.number().int().positive(),
+    createdAt: z.string().datetime(),
+    updatedAt: z.string().datetime()
+  })).optional()
 });
 
 // Micropost schema
