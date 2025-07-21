@@ -37,7 +37,7 @@ func main() {
 		api.POST("/microposts", handler.CreateMicropost)
 	}
 	
-	r.Static("/templates/admin", "../../templates/admin")
+	r.Static("/templates/admin", "./templates/admin")
 	
 	port := os.Getenv("PORT")
 	if port == "" {
